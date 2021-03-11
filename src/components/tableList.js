@@ -49,11 +49,11 @@ const TableList = () => {
             <section className="heading">
                 <div>
                     <h2>Name</h2>
-                    <button onClick={() => handleNameSort()}>^</button>
+                    <button onClick={() => data.sort(handleNameSort)}>^</button>
                 </div>
                 <div>
                     <h2>Age</h2>
-                    <button onClick={() => handleAgeSort()}>^</button>
+                    <button onClick={() => data.sort(handleAgeSort)}>^</button>
                 </div>
             </section>
             {data.map(friend => 

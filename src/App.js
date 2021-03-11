@@ -46,14 +46,33 @@ const App = () => {
     ]
   );
 
-  const handleNameSort = () => {
-    let sortedNames = data.sort((a,b) => a.name > b.name ? 1: -1);
-    setData(sortedNames);
+  const [sort, setSort] = useState(
+    {
+      nameSort: false,
+      ageSort: false
+    }
+  )
+
+  const handleNameSort = (a,b) => {
+    setSort(
+      {
+        nameSort: !sort.nameSort,
+        ageSort: sort.ageSort
+      }
+    );
+    const order = (sort.nameSort === false) ? -1 : 1;
+    return order * a.name.toLowerCase().localeCompare(b.name.toLowerCase())
   }
 
-  const handleAgeSort = () => {
-    let sortedAges = data.sort((a,b) => a-b);
-    setData(sortedAges);
+  const handleAgeSort = (a,b) => {
+    setSort(
+      {
+        nameSort: sort.nameSort,
+        ageSort: !sort.ageSort
+      }
+    );
+    const order = (sort.ageSort === false) ? a.age-b.age : b.age-a.age;
+    return order
   }
 
   let contextValue = {
