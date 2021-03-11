@@ -3,12 +3,26 @@ import Styled from "styled-components";
 
 const TableListItemDiv = Styled.div`
     color: white;
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        padding-left: 0;
+        list-style: none;
+
+        li {
+            text-align: center;
+        }
+    }
 `
 
-const TableListItem = () => {
+const TableListItem = (props) => {
     return (
         <TableListItemDiv>
-            <p>Table List Item</p>
+            <ul>
+                <li>{props.name}</li>
+                <li>{props.age}</li>
+            </ul>
         </TableListItemDiv>
     )
 };

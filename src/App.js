@@ -46,8 +46,20 @@ const App = () => {
     ]
   );
 
+  const handleNameSort = () => {
+    let sortedNames = data.sort((a,b) => a.name > b.name ? 1: -1);
+    setData(sortedNames);
+  }
+
+  const handleAgeSort = () => {
+    let sortedAges = data.sort((a,b) => a-b);
+    setData(sortedAges);
+  }
+
   let contextValue = {
-    data: data
+    data: data,
+    handleNameSort: handleNameSort,
+    handleAgeSort: handleAgeSort
   }
 
   return (
