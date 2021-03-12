@@ -5,7 +5,7 @@ import Context from "../context";
 import Styled from "styled-components";
 
 const TableListDiv = Styled.div`
-    margin: 48px auto;
+    margin: 200px auto;
     border: 2px solid white;
     width: 400px;
     height: 500px;

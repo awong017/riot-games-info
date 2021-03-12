@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route, withRouter } from "react-router-dom";
-import TableList from "./components/tableList";
+import Home from "./components/home";
 import Context from "./context";
 import Styled from "styled-components";
 
@@ -10,7 +10,7 @@ const AppDiv = Styled.div`
 const renderRoutes = () => {
   return (
     <>
-      <Route path="/" component={TableList}/>
+      <Route path="/" component={Home}/>
     </>
   );
 };
