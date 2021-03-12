@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Filters from "./filters";
 import TableListItem from "./tableListItem";
 import Context from "../context";
 import Styled from "styled-components";
@@ -42,10 +43,11 @@ const TableListDiv = Styled.div`
 `
 
 const TableList = () => {
-    const { data, handleNameSort, handleAgeSort } = useContext(Context);
+    const { data, filteredData, handleNameSort, handleAgeSort } = useContext(Context);
     return (
         <TableListDiv>
             <h1>Friends</h1>
+            <Filters />
             <section className="heading">
                 <div>
                     <h2>Name</h2>

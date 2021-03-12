@@ -1,8 +1,9 @@
 import React from "react";
-import Styled from "styled-components";
+import Styled, { ThemeProvider } from "styled-components";
+import globalStyles from "../styles/globalStyles";
 
 const TableListItemDiv = Styled.div`
-    color: white;
+    color: ${(props) => props.theme.color};
 
     ul {
         display: grid;
@@ -18,12 +19,14 @@ const TableListItemDiv = Styled.div`
 
 const TableListItem = (props) => {
     return (
-        <TableListItemDiv>
-            <ul>
-                <li>{props.name}</li>
-                <li>{props.age}</li>
-            </ul>
-        </TableListItemDiv>
+        <ThemeProvider theme={globalStyles}>
+            <TableListItemDiv>
+                <ul>
+                    <li>{props.name}</li>
+                    <li>{props.age}</li>
+                </ul>
+            </TableListItemDiv>
+        </ThemeProvider>
     )
 };
 
