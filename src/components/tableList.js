@@ -43,7 +43,7 @@ const TableListDiv = Styled.div`
 `
 
 const TableList = () => {
-    const { data, filteredData, handleNameSort, handleAgeSort } = useContext(Context);
+    const { data, searchByName, handleNameSort, handleAgeSort } = useContext(Context);
     return (
         <TableListDiv>
             <h1>Friends</h1>
@@ -58,7 +58,7 @@ const TableList = () => {
                     <button onClick={() => data.sort(handleAgeSort)}>^</button>
                 </div>
             </section>
-            {data.map(friend => 
+            {searchByName().map(friend => 
                  <TableListItem 
                     key={friend.id}
                     name={friend.name}

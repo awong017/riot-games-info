@@ -8,14 +8,14 @@ const FiltersDiv = Styled.div`
 `
 
 const Filters = () => {
-    const { searchByName } = useContext(Context);
+    const { setSearch } = useContext(Context);
     return (
         <FiltersDiv>
             <label>Search: </label>
             <input 
                 type="text" 
                 placeholder="e.g name"
-                onChange={(e) => searchByName(e.target.value)} 
+                onChange={(e) => setSearch({value:e.target.value})} 
             />
         </FiltersDiv>
     );

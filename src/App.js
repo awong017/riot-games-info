@@ -46,20 +46,23 @@ const App = () => {
     ]
   );
 
-  const [ filteredData, setFilteredData ] = useState([]);
+  const [ search, setSearch ] = useState({value:""});
 
-  const [sort, setSort] = useState(
+  const [ sort, setSort ] = useState(
     {
       nameSort: false,
       ageSort: false
     }
   )
 
-  const searchByName = (firstName) => {
-    let search = data.filter(friends => friends.name.includes(firstName.toLowerCase()));
-    console.log(filteredData);
-    setFilteredData(search);
-  }
+  const searchByName = () => {
+    if (search.value !== "") {
+      return data.filter(friends => friends.name.includes(search.value.toLowerCase()));
+    }
+    else {
+      return data;
+    }
+  };
 
   const handleNameSort = (a,b) => {
     setSort(
@@ -85,7 +88,7 @@ const App = () => {
 
   let contextValue = {
     data: data,
-    filterData: filteredData,
+    setSearch: setSearch,
     searchByName: searchByName,
     handleNameSort: handleNameSort,
     handleAgeSort: handleAgeSort
