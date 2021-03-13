@@ -5,7 +5,7 @@ import Styled, { ThemeProvider } from "styled-components";
 import globalStyles from "../styles/globalStyles";
 
 const HomeDiv = Styled.div`
-    text-align: center;
+    
 `
 
 const Home = () => {

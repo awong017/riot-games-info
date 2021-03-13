@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Styled, { ThemeProvider } from "styled-components";
 import globalStyles from "../styles/globalStyles";
 
@@ -8,15 +9,43 @@ const HomeNavDiv = Styled.div`
     left: 0;
     right: 0;
     border-bottom: 2px solid white;
-    height: 100px;
+    padding-top: 96px;
     color: white;
+
+    ul {
+        display: flex;
+        flex-direction: row-reverse;
+
+        padding-left: 0px;
+        list-style: none;
+
+        li {
+            padding-right: 24px;
+            
+            a {
+                text-decoration: none;
+                color: white;
+
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
 `
 
 const HomeNav = () => {
     return (
         <ThemeProvider theme={globalStyles}>
             <HomeNavDiv>
-                <p>Home Nav Component</p>
+                <ul>
+                    <li>
+                        <Link to={"/add-friend"}>
+                            Add Friend
+                        </Link>
+                    </li>
+                </ul>
             </HomeNavDiv>
         </ThemeProvider>
     );

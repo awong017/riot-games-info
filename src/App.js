@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Route, withRouter } from "react-router-dom";
 import Home from "./components/home";
+import AddFriend from "./components/addFriend";
 import Context from "./context";
 import Styled from "styled-components";
 
@@ -10,7 +11,8 @@ const AppDiv = Styled.div`
 const renderRoutes = () => {
   return (
     <>
-      <Route path="/" component={Home}/>
+      <Route exact path="/" component={Home}/>
+      <Route path="/add-friend" component={AddFriend}/>
     </>
   );
 };
