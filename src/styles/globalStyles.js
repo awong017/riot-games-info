@@ -1,5 +1,6 @@
 const globalStyles = {
-    color: "blue"
+    // colors
+    font: "white"
 };
 
 export default globalStyles;

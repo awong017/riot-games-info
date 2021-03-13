@@ -3,7 +3,7 @@ import Styled, { ThemeProvider } from "styled-components";
 import globalStyles from "../styles/globalStyles";
 
 const TableListItemDiv = Styled.div`
-    color: ${(props) => props.theme.color};
+    color: ${(props) => props.theme.font};
 
     ul {
         display: grid;
