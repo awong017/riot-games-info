@@ -9,7 +9,6 @@ const TableListDiv = Styled.div`
     margin: 200px auto;
     border: 2px solid white;
     width: 400px;
-    height: 500px;
     color: ${(props) => props.theme.font};
 
     h1 {

@@ -3,6 +3,7 @@ import { Route, withRouter } from "react-router-dom";
 import Home from "./components/home";
 import AddFriend from "./components/addFriend";
 import Context from "./context";
+import uuid from "uuid/dist/v4";
 import Styled from "styled-components";
 
 const AppDiv = Styled.div`
@@ -121,7 +122,7 @@ const App = (props) => {
         }
       );
       let newFriend = {
-        id: data[data.length-1].id + 1,
+        id: uuid(),
         name: friend.name,
         age: friend.age
       };
