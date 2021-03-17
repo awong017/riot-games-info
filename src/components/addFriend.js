@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Styled, { ThemeProvider } from "styled-components";
+import Context from "../context";
 import globalStyles from "../styles/globalStyles";
 
 const AddFriendDiv = Styled.div`
@@ -31,6 +32,10 @@ const AddFriendDiv = Styled.div`
                     color: white
                 }
             }
+
+            .error {
+                color: red;
+            }
         }
 
         button {
@@ -51,12 +56,13 @@ const AddFriendDiv = Styled.div`
 `
 
 const AddFriend = () => {
+    const { data, errorMessage, handleAddFriend } = useContext(Context);
     const [ newFriend, setNewFriend ] = useState({name: "", age: ""})
     return (
         <ThemeProvider theme={globalStyles}>
             <AddFriendDiv>
-                <form>
-                    <legend><h2>Add Friend</h2></legend>
+                <form onSubmit={(e) => handleAddFriend(e, newFriend)}>
+                    <legend><h2 onClick={() => console.log(data)}>Add Friend</h2></legend>
                     <fieldset>
                         <div>
                             <label>Name: </label>
@@ -66,17 +72,17 @@ const AddFriend = () => {
                                 onChange={(e) => {setNewFriend({name:e.target.value, age: newFriend.age}); 
                                 console.log(newFriend)}}
                             />
-                            <div className="error" />
+                            <div className="error">{errorMessage.nameError}</div>
                         </div>
                         <div>
                             <label>Age: </label>
                             <input 
                                 type="text" 
                                 placeholder="age"
-                                onChange={(e) => {setNewFriend({name:newFriend.name, age: e.target.value}); 
+                                onChange={(e) => {setNewFriend({name:newFriend.name, age: parseInt(e.target.value)}); 
                                 console.log(newFriend)}}
                             />
-                            <div className="error" />
+                            <div className="error">{errorMessage.ageError}</div>
                         </div>
                     </fieldset>
                     <button type="submit">Add Friend</button>

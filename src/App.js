@@ -95,8 +95,9 @@ const App = (props) => {
     return order
   }
 
-  const handleAddFriend = (friend) => {
-    if (!friend.name || friend.name.includes(" ") || friend.name.includes(/[\W]/) || typeof friend.name !== "string") {
+  const handleAddFriend = (e, friend) => {
+    e.preventDefault();
+    if (!friend.name || friend.name.includes(" ") || typeof friend.name !== "string") {
       setErrorMessage(
         {
           nameError: "Please input a valid friend name",
@@ -135,7 +136,8 @@ const App = (props) => {
     errorMessage: errorMessage,
     searchByName: searchByName,
     handleNameSort: handleNameSort,
-    handleAgeSort: handleAgeSort
+    handleAgeSort: handleAgeSort,
+    handleAddFriend: handleAddFriend
   }
 
   return (
