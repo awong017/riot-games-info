@@ -83,7 +83,7 @@ const App = (props) => {
     );
     const order = (sort.nameSort === false) ? -1 : 1;
     return order * a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-  }
+  };
 
   const handleAgeSort = (a,b) => {
     setSort(
@@ -94,7 +94,7 @@ const App = (props) => {
     );
     const order = (sort.ageSort === false) ? a.age-b.age : b.age-a.age;
     return order
-  }
+  };
 
   const handleAddFriend = (e, friend) => {
     e.preventDefault();
@@ -129,6 +129,11 @@ const App = (props) => {
       setData([...data, newFriend]);
       props.history.push("/");
     }
+  };
+
+  const handleDeleteFriend = (friendID) => {
+    let filteredFriends = data.filter(friend => friend.id !== friendID);
+    setData(filteredFriends);
   }
 
   let contextValue = {
@@ -138,7 +143,8 @@ const App = (props) => {
     searchByName: searchByName,
     handleNameSort: handleNameSort,
     handleAgeSort: handleAgeSort,
-    handleAddFriend: handleAddFriend
+    handleAddFriend: handleAddFriend,
+    handleDeleteFriend: handleDeleteFriend
   }
 
   return (

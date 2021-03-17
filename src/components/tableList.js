@@ -62,6 +62,7 @@ const TableList = () => {
                 {searchByName().map(friend => 
                     <TableListItem 
                         key={friend.id}
+                        id={friend.id}
                         name={friend.name}
                         age={friend.age}
                     />
