@@ -17,7 +17,7 @@ const renderRoutes = () => {
   );
 };
 
-const App = () => {
+const App = (props) => {
   const [ data, setData ] = useState(
     [
       {
@@ -55,7 +55,14 @@ const App = () => {
       nameSort: false,
       ageSort: false
     }
-  )
+  );
+
+  const [ errorMessage, setErrorMessage ] = useState(
+    {
+      nameError: "",
+      ageError: ""
+    }
+  );
 
   const searchByName = () => {
     if (search.value !== "") {
@@ -88,9 +95,44 @@ const App = () => {
     return order
   }
 
+  const handleAddFriend = (friend) => {
+    if (!friend.name || friend.name.includes(" ") || friend.name.includes(/[\W]/) || typeof friend.name !== "string") {
+      setErrorMessage(
+        {
+          nameError: "Please input a valid friend name",
+          ageError: ""
+        }
+      );
+    }
+    else if (!friend.age || friend.age <= 0 || typeof friend.age !== "number") {
+      setErrorMessage(
+        {
+          nameError: "",
+          ageError: "Please input a valid friend age"
+        }
+      );
+    }
+    else {
+      setErrorMessage(
+        {
+          nameError: "",
+          ageError: ""
+        }
+      );
+      let newFriend = {
+        id: data[data.length-1].id + 1,
+        name: friend.name,
+        age: friend.age
+      };
+      setData([...data, newFriend]);
+      props.history.push("/");
+    }
+  }
+
   let contextValue = {
     data: data,
     setSearch: setSearch,
+    errorMessage: errorMessage,
     searchByName: searchByName,
     handleNameSort: handleNameSort,
     handleAgeSort: handleAgeSort
