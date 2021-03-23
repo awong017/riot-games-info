@@ -32,10 +32,15 @@ const TableListDiv = Styled.div`
                 margin-top: auto;
                 margin-bottom: auto;
                 margin-right: 24px;
-                height: 24px;
+                border: 1px solid white;
+                height: 16px;
+                background-color: black;
+                color: white;
 
                 &:hover {
                     cursor: pointer;
+                    background-color: white;
+                    color: black;
                 }
             }
         }
