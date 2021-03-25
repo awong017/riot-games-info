@@ -19,6 +19,8 @@ const renderRoutes = () => {
 };
 
 const App = (props) => {
+  const [ valorantData, setValorantData ] = useState({});
+
   const [ data, setData ] = useState(
     [
       {
@@ -137,6 +139,8 @@ const App = (props) => {
   }
 
   let contextValue = {
+    valorantData: valorantData,
+    setValorantData: setValorantData,
     data: data,
     setSearch: setSearch,
     errorMessage: errorMessage,
