@@ -69,6 +69,13 @@ const App = (props) => {
     }
   );
 
+  const toggleSort = () => {
+    setSort(({ ...prevState, nameSort }) => {
+        ({...prevState, nameSort: !nameSort})
+      }
+    )
+  };
+
   const searchByName = () => {
     if (search.value !== "") {
       return data.filter(friends => friends.name.includes(search.value.toLowerCase()));
@@ -147,6 +154,7 @@ const App = (props) => {
     setSearch: setSearch,
     errorMessage: errorMessage,
     searchByName: searchByName,
+    toggleSort: toggleSort,
     handleNameSort: handleNameSort,
     handleAgeSort: handleAgeSort,
     handleAddFriend: handleAddFriend,
