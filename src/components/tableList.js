@@ -48,11 +48,11 @@ const TableListDiv = Styled.div`
 `
 
 const TableList = () => {
-    const { data, searchByName, handleNameSort, handleAgeSort } = useContext(Context);
+    const { valorantData, data, searchByName, handleNameSort, handleAgeSort } = useContext(Context);
     return (
         <ThemeProvider theme={globalStyles}>
             <TableListDiv>
-                <h1>Friends</h1>
+                <h1 onClick={() => console.log(valorantData)}>Friends</h1>
                 <Filters />
                 <section className="heading">
                     <div>

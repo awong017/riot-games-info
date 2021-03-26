@@ -19,7 +19,7 @@ const Home = () => {
 
     useEffect(() => {
         let isSubscribed = true;
-        let apiKey = "RGAPI-a9031d71-ce9e-4621-9d18-984902b71596";
+        let apiKey = "RGAPI-fdb4aa0a-5c74-4cf3-808d-59e123e95ffc";
         let options = {
             "X-Riot-Token": apiKey
         }
