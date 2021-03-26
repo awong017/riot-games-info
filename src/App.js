@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Route, withRouter } from "react-router-dom";
 import Home from "./components/home";
 import AddFriend from "./components/addFriend";
+import ActsList from "./components/actsList";
 import Context from "./context";
 import uuid from "uuid/dist/v4";
 import Styled from "styled-components";
@@ -14,6 +15,7 @@ const renderRoutes = () => {
     <>
       <Route exact path="/" component={Home}/>
       <Route path="/add-friend" component={AddFriend}/>
+      <Route path="/acts" component={ActsList}/>
     </>
   );
 };

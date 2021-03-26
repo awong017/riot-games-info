@@ -45,6 +45,11 @@ const HomeNav = () => {
                             Add Friend
                         </Link>
                     </li>
+                    <li>
+                        <Link to={"/acts"}>
+                            Acts
+                        </Link>
+                    </li>
                 </ul>
             </HomeNavDiv>
         </ThemeProvider>
