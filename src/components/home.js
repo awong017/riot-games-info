@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import HomeNav from "./homeNav";
 import TableList from "./tableList";
+import Config from "../config";
 import Context from "../context";
 import Styled, { ThemeProvider } from "styled-components";
 import globalStyles from "../styles/globalStyles";
@@ -19,11 +20,10 @@ const Home = () => {
 
     useEffect(() => {
         let isSubscribed = true;
-        let apiKey = "RGAPI-72567ea7-53e1-486c-9060-dbe60a04c488";
         let options = {
-            "X-Riot-Token": apiKey
+            "X-Riot-Token": Config.apiKey
         }
-        fetch(`https://na.api.riotgames.com/val/content/v1/contents?api_key=${apiKey}`)
+        fetch(`https://na.api.riotgames.com/val/content/v1/contents?api_key=${Config.apiKey}`)
             .then(res => (isSubscribed ? res.json().then(resJson => setValorantData(resJson)) : null))
             .catch(error => (isSubscribed ? setErrorMessage(error.toString()) : null))
         return () => isSubscribed = false
