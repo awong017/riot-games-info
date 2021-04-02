@@ -28,7 +28,7 @@ const ActsListDiv = Styled.div`
 
 const ActsList = () => {
     const { valorantData } = useContext(Context);
-    // const { acts } = valorantData;
+    const { acts } = valorantData;
 
     return (
         <ThemeProvider theme={globalStyles}>
@@ -39,14 +39,14 @@ const ActsList = () => {
                     <li>Type</li>
                     <li>Localized Names</li>
                 </ul>
-            {/* {acts.map(act => 
+            {acts.map(act => 
                 <ActsListItem 
                     key={act.id}
                     name={act.name}
                     type={act.type}
                     localizedNames={act.localizedNames}
                 />
-            )} */}
+            )}
             </ActsListDiv>
         </ThemeProvider>
     );

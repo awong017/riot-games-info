@@ -70,9 +70,8 @@ const App = (props) => {
   );
 
   const toggleSort = () => {
-    setSort(({ ...prevState, nameSort }) => {
-        ({...prevState, nameSort: !nameSort})
-      }
+    setSort(({ nameSort, ...prevState }) => 
+        ({nameSort: !nameSort, ...prevState})
     )
   };
 
@@ -154,6 +153,7 @@ const App = (props) => {
     setSearch: setSearch,
     errorMessage: errorMessage,
     searchByName: searchByName,
+    sort: sort,
     toggleSort: toggleSort,
     handleNameSort: handleNameSort,
     handleAgeSort: handleAgeSort,
